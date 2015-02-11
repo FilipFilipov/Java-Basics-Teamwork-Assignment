@@ -29,6 +29,8 @@ public class Board extends JPanel {
 		int width = puzzle.getWidth();
 		int height = puzzle.getHeight();
 		
+		TileListener tl = new TileListener();
+		
  		for(int row = 0; row < rows; row++){
 			for(int col = 0; col < cols; col++){
 				// Initialize the tile according to its position.
@@ -43,8 +45,8 @@ public class Board extends JPanel {
 				
 				// Make the tiles gray when they have no icon.
 				tile.setBackground(Color.GRAY);
-				// Add our own listener to the tile so it reacts to clicks.
-				tile.addActionListener(new TileListener());
+				// Add our own listener to the tile, so it reacts to clicks.
+				tile.addActionListener(tl);
 				buttons[row][col] = tile;
 				this.add(tile);
 			}
